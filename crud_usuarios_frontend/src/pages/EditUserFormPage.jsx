@@ -1,5 +1,5 @@
 import { UserForm } from "../components/CreateUserForm";
 
-export function CreateUserFormPage() {
+export function EditUserFormPage() {
   return <UserForm />;
 }

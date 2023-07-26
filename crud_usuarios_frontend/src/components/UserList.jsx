@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllUsers } from "../api/users.api";
-import {UserCard} from './UserCard'
+import { UserCard } from "./UserCard";
 
 export function UserList() {
   const [users, setUsers] = useState([]);
@@ -16,7 +16,7 @@ export function UserList() {
   return (
     <div>
       {users.map((user) => (
-        <UserCard key={user.id} user = {user}/>
+        <UserCard key={user.id} user={user} />
       ))}
     </div>
   );

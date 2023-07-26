@@ -1,5 +1,11 @@
-import axios from 'axios'
+import axios from "axios";
 
-export function getAllUsers(){
-   return axios.get('http://localhost:8000/users/api/v1/users/')
-}
+const userApi = axios.create({
+  baseURL: "http://localhost:8000/users/api/v1/users/",
+});
+
+export const getAllUsers = () => userApi.get("/");
+
+export const createUser = (user) => userApi.post("/",user)
+
+export const deleteUser = (id) => userApi.delete(("/"+id))
