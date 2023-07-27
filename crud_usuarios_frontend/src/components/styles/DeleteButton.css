@@ -1,5 +1,5 @@
 #delete_button {
-  background-color: #dc4c64;
+  background-color: #AB5664;
   border-radius: 0.4em;
   border-style: none;
   color: whitesmoke;
@@ -8,4 +8,8 @@
   padding: 0.8em;
   width: 10em;
   font-size: 1em;
+}
+
+#delete_button:hover{
+  background-color: #CA4A5F;
 }

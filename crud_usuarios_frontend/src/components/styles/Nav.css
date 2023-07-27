@@ -14,10 +14,7 @@ nav {
 }
 
 .link:hover {
-  background-color: #3b71ca;
-}
-.link:enabled {
-  background-color: #3b71ca;
+  background-color: #262749;
 }
 
 #website_name {
