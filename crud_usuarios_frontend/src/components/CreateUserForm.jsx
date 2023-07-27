@@ -1,21 +1,54 @@
 import { useForm } from "react-hook-form";
-import { createUser } from "../api/users.api";
-import { useNavigate } from "react-router-dom";
-import './styles/CreateUserForm.css'
+import { createUser, updateUser, deleteUser, getUser } from "../api/users.api";
+import { useNavigate, useParams } from "react-router-dom";
+import "./styles/CreateUserForm.css";
+import { useState, useEffect } from "react";
+import "./styles/DeleteButton.css";
 
 export function UserForm() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const navigate = useNavigate();
+  const params = useParams();
+
+  function setAction() {
+    return params.id ? "Update" : "Create New";
+  }
+  const action = setAction();
+
+  useEffect(() => {
+    if (params.id) {
+      async function loadUser() {
+        const user = await getUser(params.id);
+        setValue("name", user.data.name);
+        setValue("surname", user.data.surname);
+        setValue("email", user.data.email);
+        setValue("phone", user.data.phone);
+        setValue("birth_date", user.data.birth_date);
+      }
+      loadUser();
+    }
+  }, []);
 
   const onSubmit = handleSubmit(async (data) => {
-    await createUser(data);
-    navigate("/users");
+    if (params.id) {
+      data.name = data.name.toUpperCase();
+      data.surname = data.surname.toUpperCase();
+
+      await updateUser(params.id, data);
+      navigate("/users");
+    } else {
+      data.name = data.name.toUpperCase();
+      data.surname = data.surname.toUpperCase();
+
+      await createUser(data);
+      navigate("/users");
+    }
   });
 
   return (
     <form onSubmit={onSubmit}>
-      <h1>Create New User</h1>
+      <h1>{action} User</h1>
       <label htmlFor="">Name</label>
       <input
         type="text"
@@ -56,6 +89,22 @@ export function UserForm() {
         autoComplete="off"
       />
       <button id="save_button">Save User</button>
+
+      {params.id && (
+        <button
+          id="delete_button"
+          onClick={async () => {
+            if (confirm("Estas seguro de querer eliminar el usuario?")) {
+              await deleteUser(params.id);
+              navigate("/users");
+            } else {
+              alert("No se ha borrado ningun usuario");
+            }
+          }}
+        >
+          Delete
+        </button>
+      )}
     </form>
   );
 }

@@ -2,8 +2,12 @@ import { useNavigate, redirect } from "react-router-dom";
 import "./styles/UserCard.css";
 
 export function UserCard({ user }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="usercard">
+    <div className="usercard" onClick={() => {
+      navigate('/users/'+user.id)
+    }}>
       <div className="identification">
         <h1 id="name">{user.name}</h1>
         <h1 id="surname">{user.surname}</h1>
