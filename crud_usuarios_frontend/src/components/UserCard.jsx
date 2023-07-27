@@ -1,32 +1,19 @@
-import { deleteUser } from "../api/users.api";
 import { useNavigate, redirect } from "react-router-dom";
+import "./styles/UserCard.css";
 
 export function UserCard({ user }) {
-  function refreshPage() {
-    window.location.reload(false);
-  }
-
   return (
-    <div>
-      <hr />
-      <h1>{user.name}</h1>
-      <h1>{user.surname}</h1>
-      <h1>{user.email}</h1>
-      <h1>{user.phone}</h1>
-      <h1>{user.birth_date}</h1>
-      <button
-        onClick={async () => {
-          if (confirm("Estas seguro de querer eliminar el usuario?")) {
-            await deleteUser(user.id);
-            refreshPage();
-          } else {
-            alert("No se ha borrado ningun usuario");
-          }
-        }}
-      >
-        Delete User
-      </button>
-      <hr />
+    <div className="usercard">
+      <div className="identification">
+        <h1 id="name">{user.name}</h1>
+        <h1 id="surname">{user.surname}</h1>
+      </div>
+
+      <div className="info">
+        <h2>{user.email}</h2>
+        <h2>{user.phone}</h2>
+        <h2>{user.birth_date}</h2>
+      </div>
     </div>
   );
 }

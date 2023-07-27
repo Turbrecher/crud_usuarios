@@ -1,0 +1,29 @@
+nav {
+  align-items: center;
+  background-color: #606060;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2em;
+  padding: 0.3em;
+}
+.link {
+  border-radius: 0.4em;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em;
+}
+
+.link:hover {
+  background-color: #3b71ca;
+}
+.link:enabled {
+  background-color: #3b71ca;
+}
+
+#website_name {
+  background-color: #dc4c64;
+  border-radius: 0.4em;
+  color: white;
+  text-decoration: none;
+  padding: 0.8em;
+}

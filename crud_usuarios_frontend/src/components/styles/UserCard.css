@@ -1,0 +1,41 @@
+.info {
+  padding: 1em;
+}
+
+.info h2 {
+  color: white;
+  text-align: center;
+}
+
+.identification {
+  background-color: #3b71ca;
+  background-color: #DC4C64;
+  padding: 0.5em;
+}
+
+.identification h1 {
+  color: white;
+  margin: 0.2em;
+}
+
+#name {
+  height: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#surname {
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.usercard {
+  background-color: rgb(41, 37, 37);
+  background-color: #606060;
+  border-radius: 0.4em;
+  margin: 3em auto;
+  width: 30%;
+}

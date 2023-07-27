@@ -1,0 +1,10 @@
+#delete_button {
+    background-color: #dc4c64;
+    border-radius: 0.4em;
+    border-style: none;
+    color: whitesmoke;
+    margin: 0 auto;
+    padding: 0.8em;
+    width: 10em;
+    font-size: 1em;
+  }
